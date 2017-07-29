@@ -13,6 +13,7 @@
 #+REVEAL_TRANS: none
 #+REVEAL_THEME: night
 #+REVEAL_EXTRA_CSS: ./reveal.js/lib/css/zenburn.css
+#+REVEAL_EXTRA_CSS: ./presentation.css
 
 #+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
 #+TITLE: Practical Dependent Types
@@ -24,20 +25,26 @@
 
 ** Curry-Howard isomorphism
 
-    - Intuitionist logic (no excluded middle, no double negation)
-    - Compiler = Proof Checker
+    - Every function in typed lambda calculus is a proof in intuitionist logic
+      - (no excluded middle, no double negation)
 
 ** Worth a google:
 
    - /Propositions as Types/ - Philip Wadler
    - Calculus of constructions
-   -
+   - The various type systems (like System F of Haskell fame)
 
 * Why
 
-  -
+  - Expressive types /and/ formal specification at once!
+
+** If it compiles, ship it!
+
+   - If your types express your logic, the compiler has proven your program correct
 
 * Idris
+
+  - A dependent type declaration for a vector of certain length
 
 #+begin_src idris
 data Vect : Nat -> Type -> Type where
