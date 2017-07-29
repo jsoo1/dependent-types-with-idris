@@ -12,8 +12,35 @@
 #+REVEAL_MAX_SCALE: 2.5
 #+REVEAL_TRANS: none
 #+REVEAL_THEME: night
-#+REVEAL_HLEVEL: 999
-#+REVEAL_EXTRA_CSS: ./presentation.css
+#+REVEAL_EXTRA_CSS: ./reveal.js/lib/css/zenburn.css
+
+#+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
+#+TITLE: Practical Dependent Types
+
+* What
+
+  - Types that depend on values
+  - Link mathematical theory of logic to type systems
+
+** Curry-Howard isomorphism
+
+    - Intuitionist logic (no excluded middle, no double negation)
+    - Compiler = Proof Checker
+
+** Worth a google:
+
+   - /Propositions as Types/ - Philip Wadler
+   - Calculus of constructions
+   -
+
+* Why
+
+  -
 
 * Idris
-* Practical Dependent Types
+
+#+begin_src idris
+data Vect : Nat -> Type -> Type where
+     Nil : Vect Z a
+     (::) : a -> Vect k a -> Vect (S k) a
+#+end_src
