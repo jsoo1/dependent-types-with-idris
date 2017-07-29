@@ -2,7 +2,10 @@ module Main
 
 
 main : IO ()
-main = putStrLn "Hello world"
+main = do
+  putStr "Hi, type some shit...\n> "
+  str <- getLine
+  putStrLn str
 
 
 isSingleton : Bool -> Type
@@ -50,4 +53,16 @@ inTLV = There (There (Here))
 
 
 mutual
-  even
+  even : Nat -> Bool
+  even Z = True
+  even (S k) = odd k
+
+  odd : Nat -> Bool
+  odd Z = False
+  odd (S k) = even k
+
+
+printIt : String -> IO ()
+printIt x = putStrLn x
+
+
