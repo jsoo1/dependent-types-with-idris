@@ -34,12 +34,12 @@
 </section>
 
 <section>
-<section id="slide-orgd95facd">
-<h2 id="orgd95facd">Disclaimer!</h2>
-<div class="outline-text-2" id="text-orgd95facd">
+<section id="slide-org0f84417">
+<h2 id="org0f84417">Disclaimer!</h2>
+<div class="outline-text-2" id="text-org0f84417">
 </div></section>
-<section id="slide-org6667d3a">
-<h3 id="org6667d3a">I am no expert. Most everything here is gleaned from:</h3>
+<section id="slide-org9464b43">
+<h3 id="org9464b43">I am no expert. Most everything here is gleaned from:</h3>
 <ol>
 <li>The Idris tutorial I half started last week</li>
 <li>The Wikipedia article on Dependent Types</li>
@@ -50,24 +50,24 @@
 </section>
 </section>
 <section>
-<section id="slide-orga9a7991">
-<h2 id="orga9a7991">Problem:</h2>
-<div class="outline-text-2" id="text-orga9a7991">
+<section id="slide-org11164c4">
+<h2 id="org11164c4">Problem:</h2>
+<div class="outline-text-2" id="text-org11164c4">
 </div></section>
-<section id="slide-orgcebac20">
-<h3 id="orgcebac20">It is nigh impossible to prove our programs do what we say they do.</h3>
+<section id="slide-org2bf5c2a">
+<h3 id="org2bf5c2a">It is nigh impossible to prove our programs do what we say they do.</h3>
 
 </section>
-<section id="slide-org72235a7">
-<h3 id="org72235a7">Tests typically used to capture this specification</h3>
+<section id="slide-org0857676">
+<h3 id="org0857676">Tests typically used to capture this specification</h3>
 
 </section>
-<section id="slide-orgdb77cae">
-<h3 id="orgdb77cae">Type systems like Haskell's replace some tests</h3>
+<section id="slide-org24a69c2">
+<h3 id="org24a69c2">Type systems like Haskell's replace some tests</h3>
 
 </section>
-<section id="slide-org1c88f1b">
-<h3 id="org1c88f1b">Testing the entire space is hard:</h3>
+<section id="slide-org8a67398">
+<h3 id="org8a67398">Testing the entire space is hard:</h3>
 <ul>
 <li>For a function \( f \) of \( n \) arguments:</li>
 
@@ -88,23 +88,27 @@
 </pre>
 </div>
 
-</section>
-<section id="slide-org53eec6b">
-<h3 id="org53eec6b">Property testing gets more cases</h3>
+<p>
+(Imagine for types <code>Int -&gt; Int -&gt; Int -&gt; Int</code>!)
+</p>
 
 </section>
-<section id="slide-orgcd53e6e">
-<h3 id="orgcd53e6e"><code>forAll</code> in QuickCheck is still not \(\forall\)</h3>
+<section id="slide-org2923d72">
+<h3 id="org2923d72">Property testing gets more cases</h3>
+
+</section>
+<section id="slide-org03a3674">
+<h3 id="org03a3674"><code>forAll</code> in QuickCheck is still not \(\forall\)</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-orgedc18fd">
-<h2 id="orgedc18fd">What we need are <i>proofs</i></h2>
-<div class="outline-text-2" id="text-orgedc18fd">
+<section id="slide-orgf45441b">
+<h2 id="orgf45441b">What we need are <i>proofs</i></h2>
+<div class="outline-text-2" id="text-orgf45441b">
 </div></section>
-<section id="slide-orgec44564">
-<h3 id="orgec44564">Curry-Howard isomorphism</h3>
+<section id="slide-org4078c06">
+<h3 id="org4078c06">Curry-Howard isomorphism</h3>
 <p>
 <b>(yes, that Curry)</b>
 </p>
@@ -116,15 +120,15 @@
 </ul>
 
 </section>
-<section id="slide-org71e9b9e">
-<h3 id="org71e9b9e">That sounds like the ticket!</h3>
+<section id="slide-org665ebf8">
+<h3 id="org665ebf8">That sounds like the ticket!</h3>
 <p>
 We just need one thing (from my limited research)
 </p>
 
 </section>
-<section id="slide-org4778b08">
-<h3 id="org4778b08">Dependent Types</h3>
+<section id="slide-org6956357">
+<h3 id="org6956357">Dependent Types</h3>
 <ul>
 <li>Types that depend on values</li>
 <li>Link mathematical theory of logic to type systems</li>
@@ -133,8 +137,8 @@ We just need one thing (from my limited research)
 </ul>
 
 </section>
-<section id="slide-org67b8353">
-<h3 id="org67b8353">Worth a google</h3>
+<section id="slide-org3c32141">
+<h3 id="org3c32141">Worth a google</h3>
 <ul>
 <li><i>Propositions as Types</i> - Philip Wadler</li>
 <li>Various typed lambda calculi (like System F of Haskell fame)</li>
@@ -144,12 +148,12 @@ We just need one thing (from my limited research)
 </section>
 </section>
 <section>
-<section id="slide-org115433f">
-<h2 id="org115433f">Prior Art</h2>
-<div class="outline-text-2" id="text-org115433f">
+<section id="slide-orga4db7d2">
+<h2 id="orga4db7d2">Prior Art</h2>
+<div class="outline-text-2" id="text-orga4db7d2">
 </div></section>
-<section id="slide-org4e13574">
-<h3 id="org4e13574">Agda, Coq, and a ton of others</h3>
+<section id="slide-org23e4fca">
+<h3 id="org23e4fca">Agda, Coq, and a ton of others</h3>
 <ul>
 <li>What sets apart the modern dependent type technologies is their usefulness to the average business programmer</li>
 <li>(Not to say any of the others aren't, but Idris puts the business user first)</li>
@@ -157,8 +161,8 @@ We just need one thing (from my limited research)
 </ul>
 
 </section>
-<section id="slide-orgf2f23b7">
-<h3 id="orgf2f23b7">Haskell has had some form of dependent types as of GHC 8</h3>
+<section id="slide-orgdba713b">
+<h3 id="orgdba713b">Haskell has had some form of dependent types as of GHC 8</h3>
 <ul>
 <li><a href="https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell">Like in this blog</a></li>
 <li>And as a library for longer via <a href="https://ucsd-progsys.github.io/liquidhaskell-blog/">LiquidHaskell</a></li>
@@ -168,28 +172,28 @@ We just need one thing (from my limited research)
 </section>
 </section>
 <section>
-<section id="slide-org9e8e23f">
-<h2 id="org9e8e23f">Idris</h2>
-<div class="outline-text-2" id="text-org9e8e23f">
+<section id="slide-orgf316771">
+<h2 id="orgf316771">Idris</h2>
+<div class="outline-text-2" id="text-orgf316771">
 </div></section>
-<section id="slide-org0751b70">
-<h3 id="org0751b70">Centered around being a practical dependently typed technology</h3>
+<section id="slide-org59ae5ba">
+<h3 id="org59ae5ba">Centered around being a practical dependently typed technology</h3>
 
 </section>
-<section id="slide-org922255e">
-<h3 id="org922255e">Expressive types <i>and</i> formal specification at once!</h3>
+<section id="slide-orgf7cb955">
+<h3 id="orgf7cb955">Expressive types <i>and</i> formal specification at once!</h3>
 
 </section>
-<section id="slide-org1bb65bf">
-<h3 id="org1bb65bf">Interactive proving!</h3>
+<section id="slide-orgf08449a">
+<h3 id="orgf08449a">Interactive proving!</h3>
 <ul>
 <li>Not unique to Idris, but worth a mention</li>
 
 </ul>
 
 </section>
-<section id="slide-org8258e79">
-<h3 id="org8258e79">Just hit 1.0!</h3>
+<section id="slide-org8451bd2">
+<h3 id="org8451bd2">Just hit 1.0!</h3>
 <div class="org-src-container">
 
 <pre  class="src src-yaml"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">In ~/.stack/global-project/stack.yaml</span>
@@ -208,12 +212,12 @@ stack install idris-1.0
 </section>
 </section>
 <section>
-<section id="slide-org6dbe3d5">
-<h2 id="org6dbe3d5">Sample code!</h2>
-<div class="outline-text-2" id="text-org6dbe3d5">
+<section id="slide-org07ac51b">
+<h2 id="org07ac51b">Sample code!</h2>
+<div class="outline-text-2" id="text-org07ac51b">
 </div></section>
-<section id="slide-orge31718f">
-<h3 id="orge31718f">A vector of specific length</h3>
+<section id="slide-org9e2abae">
+<h3 id="org9e2abae">A vector of specific length</h3>
 <div class="org-src-container">
 
 <pre  class="src src-idris"><span style="color: #4f97d7; font-weight: bold;">data</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Nat</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Type</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Type</span> <span style="color: #4f97d7; font-weight: bold;">where</span>
@@ -223,8 +227,8 @@ stack install idris-1.0
 </div>
 
 </section>
-<section id="slide-orgb752e78">
-<h3 id="orgb752e78">This works:</h3>
+<section id="slide-org4953255">
+<h3 id="org4953255">This works:</h3>
 <div class="org-src-container">
 
 <pre  class="src src-idris"><span style="color: #b2b2b2; background-color: #292b2e;">aVect</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #a45bad;">7</span> <span style="color: #b2b2b2; background-color: #292b2e;">Int</span>
@@ -233,12 +237,12 @@ stack install idris-1.0
 </div>
 
 </section>
-<section id="slide-org1cdff1b">
-<h4 id="org1cdff1b">We had arrays of fixed length in C</h4>
+<section id="slide-org487cd85">
+<h4 id="org487cd85">We had arrays of fixed length in C</h4>
 
 </section>
-<section id="slide-org26a8492">
-<h3 id="org26a8492">This also works</h3>
+<section id="slide-orgfe94072">
+<h3 id="orgfe94072">This also works</h3>
 <div class="org-src-container">
 
 <pre  class="src src-idris"><span style="color: #b2b2b2; background-color: #292b2e;">onlySeven</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Nat</span>
@@ -251,8 +255,8 @@ stack install idris-1.0
 </div>
 
 </section>
-<section id="slide-orga87febf">
-<h3 id="orga87febf">Canonical toy example</h3>
+<section id="slide-org2826c52">
+<h3 id="org2826c52">Canonical toy example</h3>
 <p>
 Appending two vectors
 </p>
@@ -266,26 +270,26 @@ Appending two vectors
 </div>
 
 </section>
-<section id="slide-org6c30592">
-<h3 id="org6c30592">Toy examples don't convey just how practical and awesome Idris is</h3>
+<section id="slide-orga3d9059">
+<h3 id="orga3d9059">Toy examples don't convey just how practical and awesome Idris is</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org12d4aaa">
-<h2 id="org12d4aaa">Give it a shot!</h2>
-<div class="outline-text-2" id="text-org12d4aaa">
+<section id="slide-orgb344060">
+<h2 id="orgb344060">Give it a shot!</h2>
+<div class="outline-text-2" id="text-orgb344060">
 </div></section>
-<section id="slide-org0e1f9e2">
-<h3 id="org0e1f9e2">Tutorial is awesome and free</h3>
+<section id="slide-orgd53698f">
+<h3 id="orgd53698f">Tutorial is awesome and free</h3>
 <ul>
 <li><a href="http://docs.idris-lang.org/en/latest/tutorial/index.html">docs.idris-lang.org</a></li>
 
 </ul>
 
 </section>
-<section id="slide-orgbe95f9e">
-<h3 id="orgbe95f9e">Type Driven Development</h3>
+<section id="slide-org91a103a">
+<h3 id="org91a103a">Type Driven Development</h3>
 <ul>
 <li>by Edwin Brady, author of Idris itself</li>
 <li><a href="https://www.manning.com/books/type-driven-development-with-idris">At Manning's website</a></li>
@@ -293,16 +297,16 @@ Appending two vectors
 </ul>
 
 </section>
-<section id="slide-orgde7037c">
-<h3 id="orgde7037c">Spacemacs Layer is great</h3>
+<section id="slide-orgf941960">
+<h3 id="orgf941960">Spacemacs Layer is great</h3>
 <ul>
 <li><a href="http://develop.spacemacs.org/layers/+lang/idris/README.html">develop.spacemacs.org</a></li>
 
 </ul>
 
 </section>
-<section id="slide-orgb45971a">
-<h3 id="orgb45971a">Podcasts and Youtube</h3>
+<section id="slide-org122c5e1">
+<h3 id="org122c5e1">Podcasts and Youtube</h3>
 <ul>
 <li><a href="http://www.se-radio.net/2017/07/se-radio-episode-296-type-driven-development-with-edwin-brady/">Software Engineering Radio Ep. 296: Type Driven Development with Edwin Brady</a></li>
 <li><a href="https://www.functionalgeekery.com/episode-54-edwin-brady/">Functional Geekery Ep. 54 - Edwin Brady</a></li>
@@ -311,6 +315,13 @@ Appending two vectors
 <li><a href="https://www.youtube.com/watch?v=P82dqVrS8ik">Brian McKenna - Idris: verifying a monoid</a></li>
 
 </ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgfe25262">
+<h2 id="orgfe25262">If it compiles, ship it!</h2>
 </section>
 </section>
 </div>

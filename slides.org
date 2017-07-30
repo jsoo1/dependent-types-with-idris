@@ -47,6 +47,8 @@
 g :: Bool -> Bool -> Bool -> Bool
    #+end_src
 
+   (Imagine for types ~Int -> Int -> Int -> Int~!)
+
 ** Property testing gets more cases
 
 ** ~forAll~ in QuickCheck is still not \(\forall\)
