@@ -1,13 +1,19 @@
-div.org-src-container {
-    margin-top: 10%;
-}
 pre.src-idris {
+    margin-top: 7%;
     padding-left: 25%;
 }
 pre.src-haskell {
+    margin-top: 7%;
     padding-left: 25%;
 }
-
+pre.src-shell {
+    margin-top: 7%;
+    padding-left: 25%;
+}
+pre.src-yaml {
+    margin-top: 7%;
+    padding-left: 25%;
+}
 .reveal ol {
     margin-top: 3%;
 }
