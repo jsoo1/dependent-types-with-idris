@@ -165,11 +165,11 @@ aVect = [1, 2, 3, 4, 5, 6, 7]
    - by Edwin Brady, author of Idris itself
    - [[https://www.manning.com/books/type-driven-development-with-idris][At Manning's website]]
 
-** Spacemacs Layer is great
+** Spacemacs layer is great
 
    - [[http://develop.spacemacs.org/layers/+lang/idris/README.html][develop.spacemacs.org]]
 
-** Podcasts and Youtube
+** Podcast and Video
 
    - [[http://www.se-radio.net/2017/07/se-radio-episode-296-type-driven-development-with-edwin-brady/][Software Engineering Radio Ep. 296: Type Driven Development with Edwin Brady]]
    - [[https://www.functionalgeekery.com/episode-54-edwin-brady/][Functional Geekery Ep. 54 - Edwin Brady]]
