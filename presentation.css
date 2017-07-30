@@ -1,4 +1,9 @@
 div.org-src-container {
     margin-top: 10%;
+}
+pre.src-idris {
+    padding-left: 25%;
+}
+pre.src-haskell {
     padding-left: 25%;
 }

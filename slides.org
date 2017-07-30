@@ -18,36 +18,64 @@
 #+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
 #+TITLE: Practical Dependent Types
 
-* What
+* Why not try to (formally) prove that business logic is correct?
+
+** Tests typically used to capture this specification
+
+   - Testing all states is hard
+   - For a function \( f \) of \( n \) arguments \( f:(X_1,..., X_n) \mapsto Y \) , there are \( \prod_{i=1,n} |X_i| \) possible inputs
+   - i.e. \(g\), below, has \(2 \times 2 \times 2 \) inputs
+
+#+begin_src haskell
+g :: Bool -> Bool -> Bool -> Bool
+#+end_src
+
+** Property testing gets more cases
+
+   - ~forAll~ in QuickCheck is still not \(\forall\)
+
+* What we need are /proofs/
+** Curry-Howard isomorphism (yes, that Curry)
+
+    - Every function in typed lambda calculus is a proof in intuitionist logic
+    - (no excluded middle, no double negation)
+
+** Dependent Types
 
   - Types that depend on values
   - Link mathematical theory of logic to type systems
+  - Stand for universal quantifiers ( \forall, \exists ) in predicate logic
 
-** Curry-Howard isomorphism
-
-    - Every function in typed lambda calculus is a proof in intuitionist logic
-      - (no excluded middle, no double negation)
-
-** Worth a google:
+** Worth a google
 
    - /Propositions as Types/ - Philip Wadler
-   - Calculus of constructions
-   - The various type systems (like System F of Haskell fame)
+   - Various typed lambda calculi (like System F of Haskell fame)
+   - The dependant type wikipedia page has provided me with a lot of my knowledge
 
-* Why
+* Prior Art
+
+** Agda, Coq, and a ton of others
+
+   - What sets apart the modern dependent type technologies is their usefulness to the average business user
+   - Haskell has some form of dependent types as of GHC 8
+     + [[https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell][Like in this blog]]
+     + [[https://ucsd-progsys.github.io/liquidhaskell-blog/][LiquidHaskell]]
+
+** Enter Idris
 
   - Expressive types /and/ formal specification at once!
+  - Interactive proving (Idris helps write your code for you!)
+    - Not unique to Idris, but worth a mention
+  - Just hit 1.0!
 
-** If it compiles, ship it!
-
-   - If your types express your logic, the compiler has proven your program correct
-
-* Idris
-
-  - A dependent type declaration for a vector of certain length
+** A dependent type declaration for a vector of certain length
 
 #+begin_src idris
 data Vect : Nat -> Type -> Type where
      Nil : Vect Z a
      (::) : a -> Vect k a -> Vect (S k) a
 #+end_src
+
+** If it compiles, ship it!
+
+   - If your types express your logic, the compiler has proven your program correct
