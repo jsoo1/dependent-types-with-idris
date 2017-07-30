@@ -7,3 +7,7 @@ pre.src-idris {
 pre.src-haskell {
     padding-left: 25%;
 }
+
+.reveal ol {
+    margin-top: 3%;
+}

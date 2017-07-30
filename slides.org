@@ -18,11 +18,22 @@
 #+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
 #+TITLE: Practical Dependent Types
 
-* Why not try to (formally) prove that business logic is correct?
+* Disclaimer!
+
+** I am no expert. Most everything here is gleaned from:
+
+    1. The Idris tutorial I half started last week
+    2. The Wikipedia article on Dependent Types
+    3. Like 2 Youtube videos and various podcasts
+
+* Problem:
+
+** It is nigh impossible to prove our programs do what we say they do.
 
 ** Tests typically used to capture this specification
 
-   - Testing all states is hard
+** Testing all states is hard:
+
    - For a function \( f \) of \( n \) arguments \( f:(X_1,..., X_n) \mapsto Y \) , there are \( \prod_{i=1,n} |X_i| \) possible inputs
    - i.e. \(g\), below, has \(2 \times 2 \times 2 \) inputs
 
@@ -32,13 +43,20 @@ g :: Bool -> Bool -> Bool -> Bool
 
 ** Property testing gets more cases
 
-   - ~forAll~ in QuickCheck is still not \(\forall\)
+** ~forAll~ in QuickCheck is still not \(\forall\)
 
 * What we need are /proofs/
-** Curry-Howard isomorphism (yes, that Curry)
+
+** Curry-Howard isomorphism
+
+   *(yes, that Curry)*
 
     - Every function in typed lambda calculus is a proof in intuitionist logic
     - (no excluded middle, no double negation)
+
+** That sounds like the ticket!
+
+We just need one thing (from my limited research)
 
 ** Dependent Types
 
@@ -50,25 +68,34 @@ g :: Bool -> Bool -> Bool -> Bool
 
    - /Propositions as Types/ - Philip Wadler
    - Various typed lambda calculi (like System F of Haskell fame)
-   - The dependant type wikipedia page has provided me with a lot of my knowledge
 
 * Prior Art
 
 ** Agda, Coq, and a ton of others
 
-   - What sets apart the modern dependent type technologies is their usefulness to the average business user
-   - Haskell has some form of dependent types as of GHC 8
-     + [[https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell][Like in this blog]]
-     + [[https://ucsd-progsys.github.io/liquidhaskell-blog/][LiquidHaskell]]
+   - What sets apart the modern dependent type technologies is their usefulness to the average business programmer
+   - (Not to say any of the others aren't, but Idris puts the business user first)
 
-** Enter Idris
+** Haskell has some form of dependent types as of GHC 8
 
-  - Expressive types /and/ formal specification at once!
-  - Interactive proving (Idris helps write your code for you!)
-    - Not unique to Idris, but worth a mention
-  - Just hit 1.0!
+   - [[https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell][Like in this blog]]
+   - [[https://ucsd-progsys.github.io/liquidhaskell-blog/][LiquidHaskell]]
 
-** A dependent type declaration for a vector of certain length
+* Idris
+
+** Centered around being a practical dependently typed technology
+
+*** Expressive types /and/ formal specification at once!
+
+*** Interactive proving (Idris helps write your code for you!)
+
+  - Not unique to Idris, but worth a mention
+
+*** Just hit 1.0!
+
+** Sample code!
+
+A vector of specific length
 
 #+begin_src idris
 data Vect : Nat -> Type -> Type where
@@ -76,6 +103,4 @@ data Vect : Nat -> Type -> Type where
      (::) : a -> Vect k a -> Vect (S k) a
 #+end_src
 
-** If it compiles, ship it!
-
-   - If your types express your logic, the compiler has proven your program correct
+* If it compiles, ship it!
