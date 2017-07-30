@@ -12,7 +12,7 @@
 #+REVEAL_MAX_SCALE: 2.5
 #+REVEAL_TRANS: none
 #+REVEAL_THEME: night
-#+REVEAL_EXTRA_CSS: ./reveal.js/lib/css/zenburn.css
+#+REVEAL_EXTRA_CSS: ./zenburn.css
 #+REVEAL_EXTRA_CSS: ./presentation.css
 
 #+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
@@ -103,7 +103,6 @@ resolver: lts-9.0
 # Outside of a Haskell project
 stack install idris-1.0
    #+end_src
-
 
 ** Sample code!
 
