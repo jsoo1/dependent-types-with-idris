@@ -16,7 +16,7 @@
 #+REVEAL_EXTRA_CSS: ./presentation.css
 
 #+OPTIONS: reveal_title_slide:"<h1>%t</h1>"
-#+TITLE: Practical Dependent Types
+#+TITLE: Pragmatic Dependent Types with Idris
 
 * Disclaimer!
 
@@ -32,9 +32,14 @@
 
 ** Tests typically used to capture this specification
 
-** Testing all states is hard:
+** Type systems like Haskell's replace some tests
 
-   - For a function \( f \) of \( n \) arguments \( f:(X_1,..., X_n) \mapsto Y \) , there are \( \prod_{i=1,n} |X_i| \) possible inputs
+** Testing the entire space is hard:
+
+   - For a function \( f \) of \( n \) arguments:
+
+   \( f:(X_1,..., X_n) \mapsto Y \) , there are \( \prod_{i=1,n} |X_i| \) possible inputs
+
    - i.e. \(g\), below, has \(2 \times 2 \times 2 \) inputs
 
    #+begin_src haskell
@@ -104,14 +109,67 @@ resolver: lts-9.0
 stack install idris-1.0
    #+end_src
 
-** Sample code!
+* Sample code!
 
-*** A vector of specific length
+** A vector of specific length
 
-    #+begin_src idris
+   #+begin_src idris
 data Vect : Nat -> Type -> Type where
      Nil : Vect Z a
      (::) : a -> Vect k a -> Vect (S k) a
-    #+end_src
+   #+end_src
 
-* If it compiles, ship it!
+** This works:
+
+   #+begin_src idris
+aVect : Vect 7 Int
+aVect = [1, 2, 3, 4, 5, 6, 7]
+   #+end_src
+
+*** We had arrays of fixed length in C
+
+** This also works
+
+   #+begin_src idris
+onlySeven : Nat
+onlySeven = 7
+
+
+aVect : Vect Main.onlySeven Int
+aVect = [1, 2, 3, 4, 5, 6, 7]
+   #+end_src
+
+** Canonical toy example
+
+   Appending two vectors
+
+   #+begin_src idris
+(++) : Vect n a -> Vect m a -> Vect (n + m) a
+(++) Nil ys = ys
+(++) (x :: xs) ys = x :: xs ++ ys
+   #+end_src
+
+** Toy examples don't convey just how practical and awesome Idris is
+
+* Give it a shot!
+
+** Tutorial is awesome and free
+
+   - [[http://docs.idris-lang.org/en/latest/tutorial/index.html][docs.idris-lang.org]]
+
+** Type Driven Development
+
+   - by Edwin Brady, author of Idris itself
+   - [[https://www.manning.com/books/type-driven-development-with-idris][At Manning's website]]
+
+** Spacemacs Layer is great
+
+   - [[http://develop.spacemacs.org/layers/+lang/idris/README.html][develop.spacemacs.org]]
+
+** Podcasts and Youtube
+
+   - [[http://www.se-radio.net/2017/07/se-radio-episode-296-type-driven-development-with-edwin-brady/][Software Engineering Radio Ep. 296: Type Driven Development with Edwin Brady]]
+   - [[https://www.functionalgeekery.com/episode-54-edwin-brady/][Functional Geekery Ep. 54 - Edwin Brady]]
+   - [[https://www.youtube.com/watch?v=4i7KrG1Afbk][Brian McKenna - Idris: Practical Dependent Types with Practical Examples]]
+   - [[https://www.youtube.com/watch?v=4i7KrG1Afbk][Brian McKenna - Idris: Type safe printf]]
+   - [[https://www.youtube.com/watch?v=P82dqVrS8ik][Brian McKenna - Idris: verifying a monoid]]

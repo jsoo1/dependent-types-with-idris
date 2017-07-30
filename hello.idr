@@ -66,3 +66,9 @@ printIt : String -> IO ()
 printIt x = putStrLn x
 
 
+aVal : Nat
+aVal = 7
+
+
+aVect : Vect Main.aVal Int
+aVect = [1, 2, 3, 4, 5, 6, 7]

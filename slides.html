@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Dependent Types for the Business User</title>
+<meta name="author" content="(John Soo)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="./zenburn.css"/>
+
+<link rel="stylesheet" href="./presentation.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Dependent Types for the Business User</h1>
+</section>
+
+<section>
+<section id="slide-orgacb07a2">
+<h2 id="orgacb07a2">Disclaimer!</h2>
+<div class="outline-text-2" id="text-orgacb07a2">
+</div></section>
+<section id="slide-org24077f5">
+<h3 id="org24077f5">I am no expert. Most everything here is gleaned from:</h3>
+<ol>
+<li>The Idris tutorial I half started last week</li>
+<li>The Wikipedia article on Dependent Types</li>
+<li>Like 2 Youtube videos and various podcasts</li>
+
+</ol>
+
+</section>
+</section>
+<section>
+<section id="slide-org9167cd5">
+<h2 id="org9167cd5">Problem:</h2>
+<div class="outline-text-2" id="text-org9167cd5">
+</div></section>
+<section id="slide-orgefd7cd4">
+<h3 id="orgefd7cd4">It is nigh impossible to prove our programs do what we say they do.</h3>
+
+</section>
+<section id="slide-org744decd">
+<h3 id="org744decd">Tests typically used to capture this specification</h3>
+
+</section>
+<section id="slide-orgf31d073">
+<h3 id="orgf31d073">Type systems like Haskell's replace some tests</h3>
+
+</section>
+<section id="slide-org6640164">
+<h3 id="org6640164">Testing the entire space is hard:</h3>
+<ul>
+<li>For a function \( f \) of \( n \) arguments:</li>
+
+</ul>
+
+<p>
+\( f:(X_1,..., X_n) \mapsto Y \) , there are \( \prod_{i=1,n} |X_i| \) possible inputs
+</p>
+
+<ul>
+<li>i.e. \(g\), below, has \(2 \times 2 \times 2 \) inputs</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-haskell"><span style="color: #bc6ec5; font-weight: bold;">g</span> <span style="color: #7590db;">::</span> <span style="color: #ce537a; font-weight: bold;">Bool</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #ce537a; font-weight: bold;">Bool</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #ce537a; font-weight: bold;">Bool</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #ce537a; font-weight: bold;">Bool</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org2455e1f">
+<h3 id="org2455e1f">Property testing gets more cases</h3>
+
+</section>
+<section id="slide-org48f5c03">
+<h3 id="org48f5c03"><code>forAll</code> in QuickCheck is still not \(\forall\)</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf89b62d">
+<h2 id="orgf89b62d">What we need are <i>proofs</i></h2>
+<div class="outline-text-2" id="text-orgf89b62d">
+</div></section>
+<section id="slide-org4903ae4">
+<h3 id="org4903ae4">Curry-Howard isomorphism</h3>
+<p>
+<b>(yes, that Curry)</b>
+</p>
+
+<ul>
+<li>Every function in typed lambda calculus is a proof in intuitionist logic</li>
+<li>(no excluded middle, no double negation)</li>
+
+</ul>
+
+</section>
+<section id="slide-org1efe939">
+<h3 id="org1efe939">That sounds like the ticket!</h3>
+<p>
+We just need one thing (from my limited research)
+</p>
+
+</section>
+<section id="slide-orgbaeb488">
+<h3 id="orgbaeb488">Dependent Types</h3>
+<ul>
+<li>Types that depend on values</li>
+<li>Link mathematical theory of logic to type systems</li>
+<li>Stand for universal quantifiers ( &forall;, &exist; ) in predicate logic</li>
+
+</ul>
+
+</section>
+<section id="slide-orgb2ff0b9">
+<h3 id="orgb2ff0b9">Worth a google</h3>
+<ul>
+<li><i>Propositions as Types</i> - Philip Wadler</li>
+<li>Various typed lambda calculi (like System F of Haskell fame)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc5a19ce">
+<h2 id="orgc5a19ce">Prior Art</h2>
+<div class="outline-text-2" id="text-orgc5a19ce">
+</div></section>
+<section id="slide-org8c59510">
+<h3 id="org8c59510">Agda, Coq, and a ton of others</h3>
+<ul>
+<li>What sets apart the modern dependent type technologies is their usefulness to the average business programmer</li>
+<li>(Not to say any of the others aren't, but Idris puts the business user first)</li>
+
+</ul>
+
+</section>
+<section id="slide-org8dadd54">
+<h3 id="org8dadd54">Haskell has had some form of dependent types as of GHC 8</h3>
+<ul>
+<li><a href="https://www.schoolofhaskell.com/user/konn/prove-your-haskell-for-great-safety/dependent-types-in-haskell">Like in this blog</a></li>
+<li>And as a library for longer via <a href="https://ucsd-progsys.github.io/liquidhaskell-blog/">LiquidHaskell</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org257f186">
+<h2 id="org257f186">Idris</h2>
+<div class="outline-text-2" id="text-org257f186">
+</div></section>
+<section id="slide-org9fbc682">
+<h3 id="org9fbc682">Centered around being a practical dependently typed technology</h3>
+
+</section>
+<section id="slide-org3bfd395">
+<h3 id="org3bfd395">Expressive types <i>and</i> formal specification at once!</h3>
+
+</section>
+<section id="slide-org242b3ec">
+<h3 id="org242b3ec">Interactive proving!</h3>
+<ul>
+<li>Not unique to Idris, but worth a mention</li>
+
+</ul>
+
+</section>
+<section id="slide-org945a1a3">
+<h3 id="org945a1a3">Just hit 1.0!</h3>
+<div class="org-src-container">
+
+<pre  class="src src-yaml"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">In ~/.stack/global-project/stack.yaml</span>
+<span style="color: #7590db;">extra-deps</span>: [ code-page-0.1.3 ]
+<span style="color: #7590db;">resolver</span>: lts-9.0
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Outside of a Haskell project</span>
+stack install idris-1.0
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org67d69ab">
+<h2 id="org67d69ab">Sample code!</h2>
+<div class="outline-text-2" id="text-org67d69ab">
+</div></section>
+<section id="slide-orgd0e32e8">
+<h3 id="orgd0e32e8">A vector of specific length</h3>
+<div class="org-src-container">
+
+<pre  class="src src-idris"><span style="color: #4f97d7; font-weight: bold;">data</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Nat</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Type</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Type</span> <span style="color: #4f97d7; font-weight: bold;">where</span>
+     <span style="color: #b2b2b2; background-color: #292b2e;">Nil</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #b2b2b2; background-color: #292b2e;">Z</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span>
+     <span style="color: #4f97d7;">(</span><span style="color: #7590db;">::</span><span style="color: #4f97d7;">)</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #b2b2b2; background-color: #292b2e;">k</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #4f97d7;">(</span><span style="color: #b2b2b2; background-color: #292b2e;">S</span> <span style="color: #b2b2b2; background-color: #292b2e;">k</span><span style="color: #4f97d7;">)</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-orgb5547d3">
+<h3 id="orgb5547d3">This works:</h3>
+<div class="org-src-container">
+
+<pre  class="src src-idris"><span style="color: #b2b2b2; background-color: #292b2e;">aVect</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #a45bad;">7</span> <span style="color: #b2b2b2; background-color: #292b2e;">Int</span>
+<span style="color: #b2b2b2; background-color: #292b2e;">aVect</span> <span style="color: #7590db;">=</span> <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org2281581">
+<h4 id="org2281581">We had arrays of fixed length in C</h4>
+
+</section>
+<section id="slide-org782206c">
+<h3 id="org782206c">This also works</h3>
+<div class="org-src-container">
+
+<pre  class="src src-idris"><span style="color: #b2b2b2; background-color: #292b2e;">onlySeven</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Nat</span>
+<span style="color: #b2b2b2; background-color: #292b2e;">onlySeven</span> <span style="color: #7590db;">=</span> <span style="color: #a45bad;">7</span>
+
+
+<span style="color: #b2b2b2; background-color: #292b2e;">aVect</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #b2b2b2; background-color: #292b2e;">Main</span><span style="color: #7590db;">.</span><span style="color: #b2b2b2; background-color: #292b2e;">onlySeven</span> <span style="color: #b2b2b2; background-color: #292b2e;">Int</span>
+<span style="color: #b2b2b2; background-color: #292b2e;">aVect</span> <span style="color: #7590db;">=</span> <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org141316c">
+<h3 id="org141316c">Canonical toy example</h3>
+<p>
+Appending two vectors
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-idris"><span style="color: #4f97d7;">(</span><span style="color: #7590db;">++</span><span style="color: #4f97d7;">)</span> <span style="color: #7590db;">:</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #b2b2b2; background-color: #292b2e;">n</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #b2b2b2; background-color: #292b2e;">m</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span> <span style="color: #7590db;">-&gt;</span> <span style="color: #b2b2b2; background-color: #292b2e;">Vect</span> <span style="color: #4f97d7;">(</span><span style="color: #b2b2b2; background-color: #292b2e;">n</span> <span style="color: #7590db;">+</span> <span style="color: #b2b2b2; background-color: #292b2e;">m</span><span style="color: #4f97d7;">)</span> <span style="color: #b2b2b2; background-color: #292b2e;">a</span>
+<span style="color: #4f97d7;">(</span><span style="color: #7590db;">++</span><span style="color: #4f97d7;">)</span> <span style="color: #b2b2b2; background-color: #292b2e;">Nil</span> <span style="color: #b2b2b2; background-color: #292b2e;">ys</span> <span style="color: #7590db;">=</span> <span style="color: #b2b2b2; background-color: #292b2e;">ys</span>
+<span style="color: #4f97d7;">(</span><span style="color: #7590db;">++</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">(</span><span style="color: #b2b2b2; background-color: #292b2e;">x</span> <span style="color: #7590db;">::</span> <span style="color: #b2b2b2; background-color: #292b2e;">xs</span><span style="color: #4f97d7;">)</span> <span style="color: #b2b2b2; background-color: #292b2e;">ys</span> <span style="color: #7590db;">=</span> <span style="color: #b2b2b2; background-color: #292b2e;">x</span> <span style="color: #7590db;">::</span> <span style="color: #b2b2b2; background-color: #292b2e;">xs</span> <span style="color: #7590db;">++</span> <span style="color: #b2b2b2; background-color: #292b2e;">ys</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-org5b1eede">
+<h3 id="org5b1eede">Toy examples don't convey just how practical and awesome Idris is</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-org07ba6f2">
+<h2 id="org07ba6f2">Give it a shot!</h2>
+<div class="outline-text-2" id="text-org07ba6f2">
+</div></section>
+<section id="slide-orgb114e36">
+<h3 id="orgb114e36">Tutorial is awesome and free</h3>
+<ul>
+<li><a href="http://docs.idris-lang.org/en/latest/tutorial/index.html">docs.idris-lang.org</a></li>
+
+</ul>
+
+</section>
+<section id="slide-orgd307702">
+<h3 id="orgd307702">Type Driven Development</h3>
+<ul>
+<li>by Edwin Brady, author of Idris itself</li>
+<li><a href="https://www.manning.com/books/type-driven-development-with-idris">At Manning's website</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org80ae97d">
+<h3 id="org80ae97d">Spacemacs Layer is great</h3>
+<ul>
+<li><a href="http://develop.spacemacs.org/layers/+lang/idris/README.html">develop.spacemacs.org</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org7c2af56">
+<h3 id="org7c2af56">Podcasts and Youtube</h3>
+<ul>
+<li><a href="http://www.se-radio.net/2017/07/se-radio-episode-296-type-driven-development-with-edwin-brady/">Software Engineering Radio Ep. 296: Type Driven Development with Edwin Brady</a></li>
+<li><a href="https://www.functionalgeekery.com/episode-54-edwin-brady/">Functional Geekery Ep. 54 - Edwin Brady</a></li>
+<li><a href="https://www.youtube.com/watch?v=4i7KrG1Afbk">Brian McKenna - Idris: Practical Dependent Types with Practical Examples</a></li>
+<li><a href="https://www.youtube.com/watch?v=4i7KrG1Afbk">Brian McKenna - Idris: Type safe printf</a></li>
+<li><a href="https://www.youtube.com/watch?v=P82dqVrS8ik">Brian McKenna - Idris: verifying a monoid</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.20,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
