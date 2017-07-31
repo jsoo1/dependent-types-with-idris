@@ -90,3 +90,74 @@ filter : (a -> Bool) -> Vect n a -> (p ** Vect p a)
 filter p Nil = (_ ** [])
 filter p (x :: xs) with (filter p xs)
   | (_ ** xs') = if (p x) then (_ ** x :: xs') else (_ ** xs')
+
+
+record Person where
+       constructor MkPerson
+       firstName, middleName, lastName : String
+       age : Int
+
+
+fred : Person
+fred = MkPerson "Fred" "Joe" "Bloggs" 30
+
+
+fredsBrother : Person
+fredsBrother = record { firstName = "John", lastName $= id, age $= (*2) } fred
+
+
+record Class where
+       constructor ClassInfo
+       students : Vect n Person
+       className : String
+       teacher : Person
+
+
+addStudent : Person -> Class -> Class
+addStudent p c = record { students = p ::  students c } c
+
+
+addStudent' : Person -> Class -> Class
+addStudent' p c = record { students $= (p ::) } c
+
+
+professorX : Person
+professorX = MkPerson "Prof" "Y" "X" 38
+
+
+csClass : Class
+csClass = ClassInfo [fred, fredsBrother] "CS" professorX
+
+
+record Prod a b where
+       constructor Times
+       fst : a
+       snd : b
+
+
+spaceIsh : Prod Double Double
+spaceIsh = Times 4 69.420
+
+
+record SizedClass (size : Nat) where
+       constructor SizedClassInfo
+       students : Vect size Person
+       className : String
+
+
+csDesc : SizedClass 2
+csDesc = SizedClassInfo [fred, fredsBrother] "CS"
+
+
+dAddStudent : Person -> SizedClass n -> SizedClass (S n)
+dAddStudent p c = SizedClassInfo (p :: students c ) (className c)
+
+
+mirror : List a -> List a
+mirror xs = let xs' = reverse xs in
+                xs ++ xs'
+
+
+showPerson : Person -> String
+showPerson p = let MkPerson firstName middleName lastName age = p in
+                   firstName ++ " " ++ middleName ++ " " ++ lastName ++ " is " ++ show age ++ " years old"
