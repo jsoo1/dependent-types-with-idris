@@ -158,15 +158,17 @@ aVect = [1, 2, 3, 4, 5, 6, 7]
 
 ** Tutorial is awesome and free
 
-   - [[http://docs.idris-lang.org/en/latest/tutorial/index.html][docs.idris-lang.org]]
+   - [[http://docs.idris-lang.org][docs.idris-lang.or,]]
 
 ** Type Driven Development
 
    - by Edwin Brady, author of Idris itself
    - [[https://www.manning.com/books/type-driven-development-with-idris][At Manning's website]]
 
-** Spacemacs layer is great
+** Development environments
 
+   - [[https://github.com/idris-hackers/idris-vim][Vim plugin]]
+   - [[https://github.com/idris-hackers/idris-mode][Emacs mode]]
    - [[http://develop.spacemacs.org/layers/+lang/idris/README.html][develop.spacemacs.org]]
 
 ** Podcast and Video
@@ -176,6 +178,7 @@ aVect = [1, 2, 3, 4, 5, 6, 7]
    - [[https://www.youtube.com/watch?v=4i7KrG1Afbk][Brian McKenna - Idris: Practical Dependent Types with Practical Examples]]
    - [[https://www.youtube.com/watch?v=4i7KrG1Afbk][Brian McKenna - Idris: Type safe printf]]
    - [[https://www.youtube.com/watch?v=P82dqVrS8ik][Brian McKenna - Idris: verifying a monoid]]
+   - [[https://www.youtube.com/results?search_query=edwin+brady+idris&page=&utm_source=opensearch][Edwin Brady has a lot of cool talks on youtube]] 
 
 
 * If it compiles, ship it!
