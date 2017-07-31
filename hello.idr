@@ -71,4 +71,22 @@ aVal = 7
 
 
 aVect : Vect Main.aVal Int
-aVect = [1, 2, 3, 4, 5, 6, 7]
+aVect = 7 :: 6 :: 5 :: 4 :: 3 :: 2 :: 1 :: Nil
+
+
+data DPair : (a : Type) -> (P : a -> Type) -> Type where
+     MkDPair : {P : a -> Type} -> (x : a) -> P x -> Main.DPair a P
+
+
+myDPair : Main.DPair Nat (\n => Vect n Int)
+myDPair = MkDPair 2 [0, 1]
+
+
+notherVec : (n : Nat ** Vect n Int)
+notherVec = (_ ** [3, 4])
+
+
+filter : (a -> Bool) -> Vect n a -> (p ** Vect p a)
+filter p Nil = (_ ** [])
+filter p (x :: xs) with (filter p xs)
+  | (_ ** xs') = if (p x) then (_ ** x :: xs') else (_ ** xs')
