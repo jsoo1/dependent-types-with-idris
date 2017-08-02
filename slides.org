@@ -6,6 +6,7 @@
 #+OPTIONS: creator:0
 #+OPTIONS: author:false
 #+OPTIONS: timestamp:0
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+REVEAL_CONTROLS: false
 #+REVEAL_MARGIN: 0.2
 #+REVEAL_MIN_SCALE: 0.5
@@ -45,6 +46,8 @@
    #+begin_src haskell
 g :: Bool -> Bool -> Bool -> Bool
    #+end_src
+
+   (Imagine for types ~Int -> Int -> Int -> Int~!)
 
 ** Property testing gets more cases
 
@@ -155,18 +158,20 @@ aVect = [1, 2, 3, 4, 5, 6, 7]
 
 ** Tutorial is awesome and free
 
-   - [[http://docs.idris-lang.org/en/latest/tutorial/index.html][docs.idris-lang.org]]
+   - [[http://docs.idris-lang.org][docs.idris-lang.or,]]
 
 ** Type Driven Development
 
    - by Edwin Brady, author of Idris itself
    - [[https://www.manning.com/books/type-driven-development-with-idris][At Manning's website]]
 
-** Spacemacs Layer is great
+** Development environments
 
+   - [[https://github.com/idris-hackers/idris-vim][Vim plugin]]
+   - [[https://github.com/idris-hackers/idris-mode][Emacs mode]]
    - [[http://develop.spacemacs.org/layers/+lang/idris/README.html][develop.spacemacs.org]]
 
-** Podcasts and Youtube
+** Podcast and Video
 
    - [[http://www.se-radio.net/2017/07/se-radio-episode-296-type-driven-development-with-edwin-brady/][Software Engineering Radio Ep. 296: Type Driven Development with Edwin Brady]]
    - [[https://www.functionalgeekery.com/episode-54-edwin-brady/][Functional Geekery Ep. 54 - Edwin Brady]]
@@ -174,3 +179,5 @@ aVect = [1, 2, 3, 4, 5, 6, 7]
    - [[https://www.youtube.com/watch?v=4i7KrG1Afbk][Brian McKenna - Idris: Type safe printf]]
    - [[https://www.youtube.com/watch?v=P82dqVrS8ik][Brian McKenna - Idris: verifying a monoid]]
    - [[https://www.youtube.com/results?search_query=edwin+brady+idris&page=&utm_source=opensearch][Edwin Brady has given a lot of cool talks]]
+
+* If it compiles, ship it!
