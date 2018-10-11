@@ -6,12 +6,12 @@ infixl 1 |>
 x |> f = f x
 
 
+data FBData = Fizz | Buzz | FizzBuzz
 
 
-
-codata FB : Nat -> Type where
-     Fizz :
-
+data FB : Nat -> Type where
+     Nil : FB Z
+     (::) :
 
 
 
